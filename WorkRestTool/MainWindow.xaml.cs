@@ -124,6 +124,14 @@
                 TipDescription.Text = "虽然什么都没做 但是辛苦我自己了";
                 return;
             }
+            if (remainingWorkTime.TotalSeconds <= 0)
+            {
+                state = 8;
+                Tip.Text = "摸摸鱼鱼";
+                Tip.Foreground = Brushes.Green;
+                TipDescription.Text = "工作结束 摸鱼永恒";
+                return;
+            }
             if (remainingWorkTime >= remainingTime)
             {
                 //工作时间比剩余时间多
