@@ -126,6 +126,13 @@
             }
             if (remainingWorkTime.TotalSeconds <= 0)
             {
+                if (state != 8)
+                {
+                    new ToastContentBuilder()
+                        .AddText("摸摸鱼鱼")
+                        .AddText("工作结束 摸鱼永恒")
+                        .Show();
+                }
                 state = 8;
                 Tip.Text = "摸摸鱼鱼";
                 Tip.Foreground = Brushes.Green;
