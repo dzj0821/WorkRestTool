@@ -166,15 +166,15 @@
             //工作时间比剩余时间少
             int workCount = (int) Math.Floor(remainingWorkTime.TotalMinutes / minWorkMinute);
             int minRoundMinute = minWorkMinute + minRestMinute;
-            int remainingWork = (int) Math.Ceiling(remainingWorkTime.TotalMinutes % minWorkMinute);
-            int mustTime = workCount * minRoundMinute + remainingWork;
-            int lastTime = (int) remainingTime.TotalMinutes;
+            double remainingWork = remainingWorkTime.TotalMinutes % minWorkMinute;
+            double mustTime = workCount * minRoundMinute + remainingWork;
+            double lastTime = remainingTime.TotalMinutes;
             if (working)
             {
                 //还在工作
                 if (lastTime >= mustTime + minRestMinute)
                 {
-                    int time = lastTime - mustTime;
+                    int time = (int) (lastTime - mustTime);
                     //时间比轮次多的情况
                     if (state != 4)
                     {
@@ -193,7 +193,7 @@
                 state = 5;
                 Tip.Text = "加把劲";
                 Tip.Foreground = Brushes.Orange;
-                TipDescription.Text = $"再工作{remainingWork}分钟就可以摸鱼了";
+                TipDescription.Text = $"再工作{(int) (remainingWork)}分钟就可以摸鱼了";
                 return;
             }
             //不在工作
@@ -203,7 +203,7 @@
                 state = 6;
                 Tip.Text = "摸鱼时光";
                 Tip.Foreground = Brushes.Green;
-                TipDescription.Text = $"还能摸{lastTime - mustTime}分钟呢";
+                TipDescription.Text = $"还能摸{(int) (lastTime - mustTime)}分钟呢";
                 return;
             }
             //时间比轮次少的情况

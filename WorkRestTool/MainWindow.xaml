@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkRestTool"
         mc:Ignorable="d"
-        Title="上班还是摸鱼" Height="400" Width="450" ResizeMode="NoResize" Topmost="True">
+        Title="上班还是摸鱼" Height="400" Width="450" ResizeMode="NoResize">
     <Grid Background="#FFE5E5E5">
         <Grid.RowDefinitions>
             <RowDefinition Height="70"></RowDefinition>
