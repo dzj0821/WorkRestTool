@@ -164,10 +164,10 @@
                 return;
             }
             //工作时间比剩余时间少
-            int workCount = (int) Math.Floor(remainingWorkTime.TotalMinutes / minWorkMinute);
+            double workCount = remainingWorkTime.TotalMinutes / minWorkMinute;
             int minRoundMinute = minWorkMinute + minRestMinute;
             double remainingWork = remainingWorkTime.TotalMinutes % minWorkMinute;
-            double mustTime = workCount * minRoundMinute + remainingWork;
+            double mustTime = workCount * minRoundMinute;
             double lastTime = remainingTime.TotalMinutes;
             if (working)
             {
@@ -193,7 +193,9 @@
                 state = 5;
                 Tip.Text = "加把劲";
                 Tip.Foreground = Brushes.Orange;
-                TipDescription.Text = $"再工作{(int) (mustTime + minRestMinute - lastTime)}分钟就可以摸鱼了";
+                //每工作1分钟，可以赚1.0 / minWorkMinute * minRoundMinute - 1分钟
+                double needTime = (mustTime + minRestMinute - lastTime) / (1.0 / minWorkMinute * minRoundMinute - 1);
+                TipDescription.Text = $"再工作{(int) (needTime)}分钟就可以摸鱼了";
                 return;
             }
             //不在工作
