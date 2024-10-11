@@ -193,7 +193,7 @@
                 state = 5;
                 Tip.Text = "加把劲";
                 Tip.Foreground = Brushes.Orange;
-                TipDescription.Text = $"再工作{(int) (remainingWork)}分钟就可以摸鱼了";
+                TipDescription.Text = $"再工作{(int) (mustTime + minRestMinute - lastTime)}分钟就可以摸鱼了";
                 return;
             }
             //不在工作
