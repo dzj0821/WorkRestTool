@@ -235,5 +235,11 @@
             Button.Content = working ? "我摸鱼了" : "我工作了";
             Update(default, default);
         }
+
+        private void Top_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window.Topmost = !Window.Topmost;
+            Top_Button.Content = Window.Topmost ? "取消置顶" : "置顶";
+        }
     }
 }

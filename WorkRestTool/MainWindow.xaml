@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkRestTool"
         mc:Ignorable="d"
-        Title="上班还是摸鱼" Height="400" Width="450" ResizeMode="NoResize">
+        Name ="Window"
+        Title="上班还是摸鱼" Height="440" Width="450" ResizeMode="NoResize">
     <Grid Background="#FFE5E5E5">
         <Grid.RowDefinitions>
             <RowDefinition Height="70"></RowDefinition>
@@ -14,6 +15,7 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
         <DockPanel HorizontalAlignment="Center" Grid.Row="0" Margin="10">
             <TextBlock FontSize="32">下班时间：</TextBlock>
@@ -53,5 +55,6 @@
             </StackPanel>
         </DockPanel>
         <Button Name="Button" Click="Button_Click" Grid.Row="5" Margin="10">我工作了</Button>
+        <Button Name="Top_Button" Click="Top_Button_Click" Grid.Row="6" Margin="10 0 10 10">置顶</Button>
     </Grid>
 </Window>
